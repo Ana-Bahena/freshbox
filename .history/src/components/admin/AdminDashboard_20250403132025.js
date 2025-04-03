@@ -51,7 +51,7 @@
       <div className="container">
         <div className="sidebar">
           <img src={freshboxLogo} alt="FreshBox Logo" className="logo" />
-          {/*
+          {/*}
           <h2 className="title">Admin Panel</h2>
           */}
           <nav className="nav">

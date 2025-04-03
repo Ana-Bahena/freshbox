@@ -428,7 +428,7 @@ app.post("/actualizar-stock", (req, res) => {
                         });
                     }
 
-                    db.query("CALL freshBox.realizar_compra(?, ?)", [cl_id, total], (err, results) => {
+                    db.query("CALL transacciones.realizar_compra(?, ?)", [cl_id, total], (err, results) => {
                         if (err) {
                             return db.rollback(() => {
                                 console.error("Error al realizar la transacción de pago:", err);

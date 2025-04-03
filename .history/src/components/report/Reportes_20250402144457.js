@@ -24,13 +24,14 @@ export default function Reportes() {
                 return {
                     id: doc.id,
                     contenedor: data.contenedor,
-                    fechaHora: `${data.fecha} ${data.hora}`,  
+                    fechaHora: `${data.fecha} ${data.hora}`,  // Concatenamos fecha y hora
                 };
             });
             setData(incidencias);
         };
         fetchData();
     }, []);
+    
 
     const filteredData = data.filter(incident => {
         if (!startDate || !endDate) return true;

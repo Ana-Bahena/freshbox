@@ -51,9 +51,7 @@
       <div className="container">
         <div className="sidebar">
           <img src={freshboxLogo} alt="FreshBox Logo" className="logo" />
-          {/*
           <h2 className="title">Admin Panel</h2>
-          */}
           <nav className="nav">
           <Link to="/usuarios"
             className={`nav-link ${activeSection === "usuarios" ? "active" : ""}`}
@@ -83,10 +81,11 @@
               onClick={() => setActiveSection("reportes")}>
               Reportes
             </Link>
-            <Link to="/monitoreo" className={`nav-link ${activeSection === "monitoreo" ? "active" : ""}`} onClick={() => setActiveSection("monitoreo")}>
+            <Link to="/Monitoreo"
+              className={`nav-link ${activeSection === "monitoreo" ? "active" : ""}`}
+              onClick={() => setActiveSection("monitoreo")}>
               Monitoreo
             </Link>
-
 {/*
             <button className="logout-button" onClick={handleLogout}>
               <FiLogOut size={24} color="#ffffff" />

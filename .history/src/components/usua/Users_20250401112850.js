@@ -253,7 +253,7 @@ const Users = () => {
 
         /* Tabla de usuarios */
         .table-container {
-          width: 88%;
+          width: 58%;
           padding: 20px;
           background: white;
           border-radius: 8px;

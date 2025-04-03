@@ -19,14 +19,9 @@ export default function Reportes() {
     useEffect(() => {
         const fetchData = async () => {
             const querySnapshot = await getDocs(collection(db, "incidencias"));
-            const incidencias = querySnapshot.docs.map(doc => {
-                const data = doc.data();
-                return {
-                    id: doc.id,
-                    contenedor: data.contenedor,
-                    fechaHora: `${data.fecha} ${data.hora}`,  
-                };
-            });
+            console.log("DB instance:", db);
+            console.log("Firestore Collection:", collection(db, "incidencias"));
+            const incidencias = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setData(incidencias);
         };
         fetchData();
@@ -51,24 +46,12 @@ export default function Reportes() {
                 </div>
                 <FaHome className="icon" onClick={handleHomeClick} />
             </header>
-            {/*}
-            <div className="filters">
-                <label>
-                    Fecha Inicio:
-                    <input type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
-                </label>
-                <label>
-                    Fecha Fin:
-                    <input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
-                </label>
-            </div>
-            */}
             <div className="chart-container">
-                <h2>Incidencias por Fecha en Contenedor</h2>
+                <h2>Datos en Tiempo Real en Contenedor</h2>
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart data={filteredData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-                        <XAxis dataKey="fechaHora" stroke="#333" />
+                        <XAxis dataKey="fecha" stroke="#333" />
                         <YAxis stroke="#333" />
                         <Tooltip />
                         <Legend />

@@ -57,7 +57,6 @@ function App() {
           <Route path="/deliveries" element={isLoggedIn && isAdmin ? <Entregas /> : <Navigate to="/" />} />
           <Route path="/reportes" element={isLoggedIn && isAdmin ? <Reportes /> : <Navigate to="/" />} />
           <Route path="/ventas" element={isLoggedIn && isAdmin ? <Ventas /> : <Navigate to="/" />} />
-          <Route path="/monitoreo" element={isLoggedIn && isAdmin ? <Monitoreo /> : <Navigate to="/" />} />
         </Routes>
       </Router>
     </GoogleOAuthProvider>

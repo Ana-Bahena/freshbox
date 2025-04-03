@@ -78,7 +78,7 @@ export default function ControlCargas() {
     e.preventDefault();
   
     try {
-      await addDoc(collection(db, "datos"), carga);
+      await addDoc(collection(db, "cargas"), carga);
   
       alert("Datos de carga guardados correctamente en Firebase.");
       setCarga({

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, query, where, getDoc, doc, onSnapshot} from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, where, getDoc, doc } from "firebase/firestore";
 import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
@@ -17,5 +17,5 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-export { db, auth, googleProvider, collection, addDoc, getDocs, query, where, getDoc, doc, signInWithRedirect, onSnapshot};
+export { db, auth, googleProvider, collection, addDoc, getDocs, query, where, getDoc, doc, signInWithRedirect };
 

@@ -19,14 +19,9 @@ export default function Reportes() {
     useEffect(() => {
         const fetchData = async () => {
             const querySnapshot = await getDocs(collection(db, "incidencias"));
-            const incidencias = querySnapshot.docs.map(doc => {
-                const data = doc.data();
-                return {
-                    id: doc.id,
-                    contenedor: data.contenedor,
-                    fechaHora: `${data.fecha} ${data.hora}`,  
-                };
-            });
+            console.log("DB instance:", db);
+            console.log("Firestore Collection:", collection(db, "incidencias"));
+            const incidencias = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setData(incidencias);
         };
         fetchData();

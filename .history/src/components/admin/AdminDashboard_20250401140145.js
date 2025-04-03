@@ -9,7 +9,6 @@
   import Reportes from "../report/Reportes";
   import axios from "axios";
   import Ventas from "../vent/Ventas";
-  import Monitoreo from "../mont/Monitoreo";
 
   function AdminDashboard({ handleLogout }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,9 +50,7 @@
       <div className="container">
         <div className="sidebar">
           <img src={freshboxLogo} alt="FreshBox Logo" className="logo" />
-          {/*
           <h2 className="title">Admin Panel</h2>
-          */}
           <nav className="nav">
           <Link to="/usuarios"
             className={`nav-link ${activeSection === "usuarios" ? "active" : ""}`}
@@ -74,29 +71,28 @@
               Entregas
             </Link>
             <Link to="/Ventas"
-              className={`nav-link ${activeSection === "ventas" ? "active" : ""}`}
-              onClick={() => setActiveSection("ventas")}>
-              Ventas
-            </Link>
+            className={`nav-link ${activeSection === "ventas" ? "active" : ""}`}
+            onClick={() => setActiveSection("ventas")}>
+            Ventas
+          </Link>
             <Link to="/reportes"
               className={`nav-link ${activeSection === "reportes" ? "active" : ""}`}
               onClick={() => setActiveSection("reportes")}>
               Reportes
             </Link>
-            <Link to="/monitoreo" className={`nav-link ${activeSection === "monitoreo" ? "active" : ""}`} onClick={() => setActiveSection("monitoreo")}>
-              Monitoreo
-            </Link>
-
 {/*
             <button className="logout-button" onClick={handleLogout}>
               <FiLogOut size={24} color="#ffffff" />
             </button>
             */}
+            
             <button onClick={logout} className="logout-button">
               <FiLogOut size={24} color="#ffffff" /> Cerrar Sesión
             </button>
+
           </nav>
         </div>
+
         <div className="content">
           <Routes>
             <Route path="/usuarios" element={<Users />} />
@@ -108,7 +104,6 @@
             <Route path="/deliveries" element={<Entregas />} />
             <Route path="/reportes" element={<Reportes />} />
             <Route path="/ventas" element={<Ventas />} />
-            <Route path="/monitoreo" element={<Monitoreo />} />
             <Route path="/" element={<Dashboard />} />
           </Routes>
         </div>

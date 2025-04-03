@@ -16,59 +16,21 @@ export default function Reportes() {
         navigate("/admin-dashboard");
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const querySnapshot = await getDocs(collection(db, "incidencias"));
-            const incidencias = querySnapshot.docs.map(doc => {
-                const data = doc.data();
-                return {
-                    id: doc.id,
-                    contenedor: data.contenedor,
-                    fechaHora: `${data.fecha} ${data.hora}`,  
-                };
-            });
-            setData(incidencias);
-        };
-        fetchData();
-    }, []);
-
-    const filteredData = data.filter(incident => {
-        if (!startDate || !endDate) return true;
-        const incidentDate = incident.fecha.toDate();
-        console.log("Datos obtenidos:", data);
-        //const incidentDate = new Date(incident.fecha.split("/").reverse().join("-"));
-        //return incidentDate >= new Date(startDate) && incidentDate <= new Date(endDate);
-        return incidentDate.getTime() >= new Date(startDate).getTime() &&
-       incidentDate.getTime() <= new Date(endDate).getTime();
-    });
-
     return (
         <div className="reportes-container">
             <header className="header">
                 <img src={freshboxLogo} alt="FreshBox Logo" className="logo" />
                 <div className="header-left">
-                    <h1>Reportes en Gráficas</h1>
+                    <h1>Graficas en Tiempo Real</h1>
                 </div>
                 <FaHome className="icon" onClick={handleHomeClick} />
             </header>
-            {/*}
-            <div className="filters">
-                <label>
-                    Fecha Inicio:
-                    <input type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
-                </label>
-                <label>
-                    Fecha Fin:
-                    <input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
-                </label>
-            </div>
-            */}
             <div className="chart-container">
-                <h2>Incidencias por Fecha en Contenedor</h2>
+                <h2>Datos en Tiempo Real en Contenedor</h2>
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart data={filteredData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-                        <XAxis dataKey="fechaHora" stroke="#333" />
+                        <XAxis dataKey="fecha" stroke="#333" />
                         <YAxis stroke="#333" />
                         <Tooltip />
                         <Legend />

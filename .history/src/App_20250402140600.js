@@ -15,7 +15,7 @@ import Entregas from "./components/entre/Entregas";
 import Reportes from "./components/report/Reportes";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Ventas from "./components/vent/Ventas";
-import Monitoreo from "./components/mont/Monitoreo";
+import Monitoreo  from "./components/mont/Monitoreo";
 
 //const googleClient = new OAuth2Client("525052293665-d5vfajcv0ea5arl7rupojm7vi3srh4lc.apps.googleusercontent.com");
 
@@ -57,7 +57,6 @@ function App() {
           <Route path="/deliveries" element={isLoggedIn && isAdmin ? <Entregas /> : <Navigate to="/" />} />
           <Route path="/reportes" element={isLoggedIn && isAdmin ? <Reportes /> : <Navigate to="/" />} />
           <Route path="/ventas" element={isLoggedIn && isAdmin ? <Ventas /> : <Navigate to="/" />} />
-          <Route path="/monitoreo" element={isLoggedIn && isAdmin ? <Monitoreo /> : <Navigate to="/" />} />
         </Routes>
       </Router>
     </GoogleOAuthProvider>
